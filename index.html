@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repeat your work</title>
+    <style>
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: black;
+            color: white;
+        }
+
+        .number,
+        .sentence {
+            font-size: 40px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="text-center">
+            <p class="sentence">Praise your lord, Allah <br> <small class="red">Don't do anything while worshiping your
+                    lord</small> </p>
+            <p class="number" id="number"></p>
+
+
+        </div>
+    </div>
+
+    <script>
+        const jikir = ['সুবহানাল্লাহ', 'আলহামদুলিল্লাহ', 'লা ইলাহা ইল্লাল্লাহ'];
+
+        const number = document.getElementById("number");
+        let time = parseInt(prompt("How many times..?"));
+        let c = 0;
+        let d = 1;
+        for (let i = 0; i <= time; i++) {
+
+            setTimeout(function () {
+                if (c === jikir.length) {
+                        c = 0;
+                    }
+                if (i === time) {
+                    number.innerHTML = i + " times done," + '<br>' + "you can back to your work now";
+                } else {
+                    
+                    number.innerHTML = jikir[c] + "    ----------      " + d;
+                    c++;
+                    d++;
+
+                }
+
+            }, i * 1500)
+
+        }
+    </script>
+</body>
+
+</html>
